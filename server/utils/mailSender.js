@@ -16,12 +16,12 @@ const mailSender = async (email, title, body) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "kapilrathore210381@acropolis.in",
-          pass: "Rathore2002",
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASS,
         },
       });
 
-    console.log("Transporter object:", transporter);
+    // console.log("Transporter object:", transporter);
 
     // let info = await transporter.sendMail({
     //   from: "CodeUp || Horror",
@@ -30,7 +30,7 @@ const mailSender = async (email, title, body) => {
     //   text: `ye raha email`,
     // });
     const mailOptions = {
-        from: "kapilrathore210381@acropolis.in",
+        from: process.env.MAIL_USER,
         to: email,
         subject: "OTP Verification",
         // text: "Ye raha otp",
